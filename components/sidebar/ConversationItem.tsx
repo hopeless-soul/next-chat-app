@@ -22,7 +22,7 @@ interface Props {
 function getDisplayName(conv: Conversation, currentUserId: string): string {
   if (conv.type === 'group') return conv.name ?? 'Unnamed group';
   const other = conv.participants.find((p) => p.userId !== currentUserId);
-  return other?.username ?? 'Unknown';
+  return other?.user?.username ?? 'Unknown';
 }
 
 function getOtherUserId(conv: Conversation, currentUserId: string): string | null {

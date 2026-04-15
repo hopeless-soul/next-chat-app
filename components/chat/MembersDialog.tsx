@@ -59,13 +59,13 @@ export default function MembersDialog({ open, onClose, conversation, currentUser
             >
               <ListItemAvatar>
                 <Avatar sx={{ width: 32, height: 32, bgcolor: 'primary.main', fontSize: '0.75rem' }}>
-                  {p.username.slice(0, 2).toUpperCase()}
+                  {p.user?.username?.slice(0, 2).toUpperCase() ?? '?'}
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={
                   <Typography variant="body2" fontWeight={600} component="span">
-                    {p.username}
+                    {p.user?.username ?? 'Unknown'}
                     {p.userId === currentUser.id && (
                       <Typography variant="caption" color="text.disabled" component="span" sx={{ ml: 0.5 }}>
                         (you)

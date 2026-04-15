@@ -10,8 +10,10 @@ export interface User {
 }
 
 export interface ConversationParticipant {
+  id?: string;
+  conversationId?: string;
   userId: string;
-  username: string;
+  user: User;
   role: ConversationRole;
   joinedAt: string;
 }

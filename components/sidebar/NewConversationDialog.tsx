@@ -66,9 +66,9 @@ export default function NewConversationDialog({ open, onClose }: Props) {
         try {
           const listRes = await conversationsApi.list();
           const existing = listRes.data.find(
-            (c: { type: string; participants: { username: string }[] }) =>
+            (c: { type: string; participants: { user?: { username: string } }[] }) =>
               c.type === 'direct' &&
-              c.participants.some((p: { username: string }) => p.username === directUsername),
+              c.participants.some((p: { user?: { username: string } }) => p.user?.username === directUsername),
           );
           if (existing) {
             upsertConversation(existing);

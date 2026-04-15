@@ -147,7 +147,7 @@ export default function MessageFeed({ conversation, currentUserId }: Props) {
       {(() => {
         const authorMap: Record<string, string> = {};
         for (const p of conversation.participants) {
-          authorMap[p.userId] = p.username;
+          authorMap[p.userId] = p.user?.username ?? 'Unknown';
         }
         for (const m of items) {
           authorMap[m.author.id] = m.author.username;

@@ -60,7 +60,7 @@ export default function ConversationHeader({ conversation, currentUser }: Props)
 
   if (conversation.type === 'direct') {
     const other = conversation.participants.find((p) => p.userId !== currentUser.id);
-    displayName = other?.username ?? 'Unknown';
+    displayName = other?.user?.username ?? 'Unknown';
     otherUserId = other?.userId ?? null;
     // lastSeen comes from presence events; not stored on participant
     otherLastSeen = null;
